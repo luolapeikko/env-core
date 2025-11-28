@@ -7,6 +7,10 @@ import {ErrorCast} from '@luolapeikko/core-ts-error';
 import type {Loadable} from '@luolapeikko/core-ts-type';
 import {Err, type IResult, Ok, Result} from '@luolapeikko/result-option';
 
+/**
+ * Azure Key Vault secrets loader options
+ * @since v0.0.1
+ */
 export interface AzureSecretsConfigLoaderOptions extends IAbstractBaseLoaderProps {
 	credentials: TokenCredential;
 	/** Azure Key Vault URL, example `https://myvault.vault.azure.net` */
@@ -20,7 +24,11 @@ export interface AzureSecretsConfigLoaderOptions extends IAbstractBaseLoaderProp
 	errExpireMs?: number;
 }
 
-type KeySecretMap<T extends Record<string, unknown>> = {[K in keyof T]?: string};
+/**
+ * Map of EnvMap keys to Azure Key Vault secret names
+ * @since v0.0.1
+ */
+export type KeySecretMap<T extends Record<string, unknown>> = {[K in keyof T]?: string};
 
 /**
  * Load environment variables from Azure Key Vault secrets, uses ExpireCache to cache values (expireMs option to set cache expire time)

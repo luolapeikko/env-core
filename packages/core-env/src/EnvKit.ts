@@ -12,12 +12,13 @@ import {VariableLookupError} from './VariableLookupError';
  * @since v0.0.1
  */
 export type EnvKitOptions = {
-	/** undefined = global logger, null = no logger else it's ILoggerLike */
-	logger?: ILoggerLike | null;
-	/** optional namespace added to logs */
+	/** {@link ILoggerLike} compatible instance (console, log4js, winston, etc.) */
+	logger?: ILoggerLike;
+	/** optional namespace added to log prefix, `ConfigVariables:${namespace}[${loaderName}]:`... */
 	namespace?: string;
-	/** logging mode for repeated gets, 'single' = log only first get or change, 'always' = log every get, undefined = 'single' */
+	/** logging mode for repeated gets, `single` = log only first get or change, `always` = log every get, default: `single` */
 	loggingMode?: 'single' | 'always';
+	/** loader error handling, `throws` = throw error, `log` = log error, default: `log` */
 	loaderError?: 'throws' | 'log';
 };
 

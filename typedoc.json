@@ -20,6 +20,9 @@
     },
     "@luolapeikko/result-option": {
       "IResult": "https://luolapeikko.github.io/result-option/types/IResult.html"
+    },
+    "@avanio/logger-like": {
+      "ILoggerLike": "https://mharj.github.io/logger-like/interfaces/ILoggerLike.html"
     }
   },
   "out": "doc"
